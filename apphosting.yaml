@@ -24,6 +24,7 @@ env:
     secret: firebase_api_key
 
   - variable: NEXT_PUBLIC_CUSTOM_ENVIRONMENT
+    value: production
     
 
   # Configure secrets
