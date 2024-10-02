@@ -44,11 +44,7 @@ export function useAccountModel() {
     function signIn() {
 		var provider = new GoogleAuthProvider()
         
-        if (process.env.NEXT_PUBLIC_CUSTOM_ENVIRONMENT == "production") {
-            signInWithRedirect(auth, provider)
-        } else {
-            signInWithPopup(auth, provider)
-        }
+        signInWithPopup(auth, provider)
         
 	}
 
