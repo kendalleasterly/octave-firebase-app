@@ -6,7 +6,7 @@ const API_KEY = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
 
 const firebaseConfig = { 
 	apiKey: API_KEY,
-	authDomain: "open-music-2.web.app",
+	authDomain: "octave.kendalleasterly.com",
 	projectId: "open-music-2",
 	storageBucket: "open-music-2.appspot.com",
 	messagingSenderId: "650823685567",
