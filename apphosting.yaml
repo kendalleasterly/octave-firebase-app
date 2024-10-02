@@ -17,6 +17,15 @@ env:
       - BUILD
       - RUNTIME
 
+  - variable: NEXT_PUBLIC_SERVER_URL
+    value: https://octave.kendalleasterly.com/api
+
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    secret: firebase_api_key
+
+  - variable: NEXT_PUBLIC_CUSTOM_ENVIRONMENT
+    
+
   # Configure secrets
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
   # - variable: API_KEY
