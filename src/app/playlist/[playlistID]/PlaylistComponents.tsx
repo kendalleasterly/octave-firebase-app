@@ -483,7 +483,7 @@ export function PlaylistArtwork({playlist, isDark}:{playlist: Playlist, isDark: 
 		}
 	} else {
 		return isDark ? (
-			<PlaceholderLargeLight className="rounded-xl" />
+			<PlaceholderLargeLight className="rounded-xl max-w-sm md:w-60 md:h-60 mx-auto md:mx-0" />
 		) : (
 			<PlaceholderLargeDark className="rounded-xl" />
 		) //TODO: Test

@@ -73,7 +73,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 
 	return (
         isClient ?
-		<div id="color-scheme" ref = {bodyRef} className={getClassName()}>
+		<div id="color-scheme" ref = {bodyRef} className={isDark ? "dark" : ""}>
 			<div id="app-notifications-player" className="bg-white dark:bg-gray-900">
 				<div className="hidden fixed bottom-16 py-6 px-8 space-y-4 md:block mb-2 z-auto w-full">
 					{notifications.map((notification, key) => {
@@ -88,14 +88,14 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 				</div>
 				<div className="content-with-player md:pb-23" id="main-content">
 					<div className="main">
-						<div className="medium-only border-r h-fullscreen overflow-scroll overscroll-contain dark:border-gray-700 border-gray-200 pt-10 pl-12 pb-4">
+						<div className="medium-only border-r h-fullscreen overflow-auto scrollbar scrollbar-track-gray-600 scrollbar-thumb-gray-400 dark:border-gray-700 border-gray-200 pt-10 pl-12 pb-4">
 							<Menu />
 						</div>
 
 						<div
 							id="content"
 							className={
-								"px-6 pt-4 md:pl-10 md:pt-10 md:pr-12 pb-28 md:pb-4 h-fullscreen overflow-scroll overscroll-contain " +
+								"px-6 pt-4 md:pl-10 md:pt-10 md:pr-12 pb-28 md:pb-4 h-fullscreen overflow-auto scrollbar scrollbar-track-gray-600 scrollbar-thumb-gray-400  " +
 								(pathname.includes("/album") ? "space-y-3" : "space-y-6")
 							}
 							onScroll={() => setContextSelection(-1)}

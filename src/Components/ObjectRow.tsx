@@ -31,7 +31,7 @@ function ObjectRow({
 
 		if (currentPlaybackObject.track) {
 			if (currentPlaybackObject.track.id === object.id) {
-				color = "text-accent80"
+				color = "text-accent-80"
 			}
 		}
 

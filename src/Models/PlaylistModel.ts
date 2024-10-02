@@ -147,14 +147,14 @@ export function usePlaylistModel() {
 			title: title,
 		})
 
-		const accountRef = doc(db, "playlists", account.uid)
+		const accountRef = doc(db, "users", account.uid)
 
 		batch.update(accountRef, {
 			simplePlaylists: arrayUnion({
 				id: newPlaylistRef.id,
 				title: title,
 			}),
-		}) //TEST
+		}) 
 
 		batch
 			.commit()
@@ -224,7 +224,7 @@ export function usePlaylistModel() {
 				)
 
 				trackModel.addTrackToDatabase(track).catch((error: any) => {
-					if (error.response) {
+					if (error) {
 						if (error.response.status !== 409) {
 							console.log("error adding song file to database", error)
 						}

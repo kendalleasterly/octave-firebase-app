@@ -35,15 +35,15 @@ function Menu() {
 
 		if (canInclude == true) {
 			if (page.toLowerCase().includes(slug.toLowerCase().replace("/", ""))) {
-				return isSVG ? "#F08A79" : "text-accent75";
+				return isSVG ? "#F08A79" : "text-accent-75";
 			}
 		} else {
 			if (page.toLowerCase() === slug.toLowerCase().replace("/", "")) {
-				return isSVG ? "#F08A79" : "text-accent75";
+				return isSVG ? "#F08A79" : "text-accent-75";
 			}
 		}
 
-		return isSVG == true ? (isDark ? "#FFFFFF" : "#3F3F46") : "text";
+		return isSVG ? (isDark ? "#FFFFFF" : "#3F3F46") : "text";
 
 		
 	}
@@ -64,7 +64,7 @@ function Menu() {
 	}
 
 	return (
-		<div id="menu" className="overflow-scroll overscroll-contain space-y-8">
+		<div id="menu" className="space-y-8">
 			<div className="flex space-x-2">
 				<Logo fill={isDark ? "#FFFFFF" : "#27272A"} />
 				<p className="text-xl font-bold text">Octave</p>

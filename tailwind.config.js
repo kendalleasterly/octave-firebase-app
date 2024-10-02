@@ -2,7 +2,7 @@ const colors = require("tailwindcss/colors")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: "selector",
   theme: {
     extend: {
       backgroundImage: {
@@ -24,22 +24,21 @@ module.exports = {
       secondarybg: "#1E1E1E",
       primarybg: "121213",
       borderColor: "#27272A",
-      accent100: "#EB634D",
-      accent80: "#EF8271",
-      accent75: "#F08A79",
-      accent20: "#FBE0DB",
+      accent: {
+        100: "#EB634D",
+        80: "#EF8271",
+        75: "#F08A79",
+        20: "#FBE0DB",
+      }
     },
   },
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    // "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    // "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    // "./components/**/*.{js,ts,jsx,tsx,mdx}",
 
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')],
 };
