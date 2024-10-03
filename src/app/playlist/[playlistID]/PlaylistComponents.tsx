@@ -343,7 +343,7 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 		return (
 			<div id="playlist-view" className="space-y-10">
 				<div className="md:flex md:space-x-6 space-y-6 md:space-y-0 md:items-center">
-					<div className="w-full max-w-sm md:w-60 md:h-60 mx-auto md:mx-0 md:max-w-none">
+					<div className="w-full aspect-square max-w-sm md:w-60 md:h-60 mx-auto md:mx-0 md:max-w-none">
 						<PlaylistArtwork playlist={playlist} isDark={isDark}/>
 					</div>
 					<div className="my-auto space-y-6">
@@ -464,7 +464,7 @@ export function PlaylistArtwork({playlist, isDark}:{playlist: Playlist, isDark: 
 							<RemoteImage
 								src={artwork}
 								key={key}
-								className=''
+								className='w-full aspect-square'
 								imgClass={getRoundingFromKey(key)}
 							/>
 						)
@@ -477,7 +477,7 @@ export function PlaylistArtwork({playlist, isDark}:{playlist: Playlist, isDark: 
 				<RemoteImage
 					src={playlist!.tracks[0].artwork}
 					imgClass="rounded-xl"
-					className="h-full"
+					className="w-full aspect-square"
 				/>
 			)
 		}

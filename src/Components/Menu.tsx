@@ -90,13 +90,6 @@ function Menu() {
 			<div id="menu-library" className="space-y-6">
 				<SubHeading>LIBRARY</SubHeading>
 
-				<Page title="Recent" slug="/library/recent">
-					<ClockIcon
-						fill={getBarColor("/library/recent", true)}
-						className="icon"
-					/>
-				</Page>
-
 				<Page title="Favorites" slug="/library/favorites">
 					<HeartIcon
 						fill={getBarColor("/library/favorites", true)}
@@ -104,12 +97,20 @@ function Menu() {
 					/>
 				</Page>
 
-				<Page title="Mixes" slug="/library/mixes" canInclude={true}>
+				<Page title="Recent" slug="/library/recent">
+					<ClockIcon
+						fill={getBarColor("/library/recent", true)}
+						className="icon"
+					/>
+				</Page>
+
+
+				{/* <Page title="Mixes" slug="/library/mixes" canInclude={true}>
 					<AlbumIcon
 						fill={getBarColor("/library/mixes", true, true)}
 						className="icon"
 					/>
-				</Page>
+				</Page> */}
 			</div>
 
 			<div

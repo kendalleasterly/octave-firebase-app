@@ -54,11 +54,14 @@ function SmallMenu() {
 			{menuTransitions(
 				(styles, item) =>
 					item && (
-						<animated.div style={styles}>
-							<div className="bg-white dark:bg-gray-900 fixed left-0 w-4/5 top-0 bottom-0 pb-17 px-6 pt-6 z-50 overflow-auto scrollbar scrollbar-track-transparent scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-500">
+						
+							<animated.div style={styles} className="z-50" >
+							<div className="bg-white dark:bg-gray-900 fixed left-0 w-4/5 z-50 top-0 bottom-0 pb-17 px-6 pt-6 overflow-auto scrollbar scrollbar-track-transparent scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-500">
 								<Menu />
 							</div>
 						</animated.div>
+						
+						
 					)
 			)}
 		</div>
