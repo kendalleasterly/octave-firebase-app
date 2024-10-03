@@ -24,11 +24,11 @@ function PlaybackControls({isFullScreen}: {isFullScreen?: boolean}) {
 			id="controls-secondary"
 			className="flex md:space-x-12 py-1 justify-between md:justify-center w-full">
 			
-			<button onClick={toggleShuffling}>
+			<button onClick={toggleShuffling} className="w-6">
 				{isFullScreen ? (
-					<ShuffleDarkIcon />
+					<ShuffleDarkIcon  />
 				) : shuffling ? (
-					<ShufflingIcon />
+					<ShufflingIcon  />
 				) : isDark ? (
 					<ShuffleDarkIcon />
 				) : (
@@ -37,11 +37,11 @@ function PlaybackControls({isFullScreen}: {isFullScreen?: boolean}) {
 			</button>
 
 			<div id="controls-primary" className="flex md:space-x-8 space-x-10">
-				<button onClick={skipBack}>
+				<button onClick={skipBack} className="w-6">
 					<BackIcon fill={buttonColor} />
 				</button>
 
-				<button onClick={playPause} className="">
+				<button onClick={playPause} className="w-6">
 					{isPlaying ? (
 						<PlayingIcon fill={buttonColor} />
 					) : (
@@ -49,12 +49,12 @@ function PlaybackControls({isFullScreen}: {isFullScreen?: boolean}) {
 					)}
 				</button>
 
-				<button onClick={skip} className="ml-4">
+				<button onClick={skip} className="ml-4 w-6" >
 					<SkipIcon fill={buttonColor} />
 				</button>
 			</div>
 
-			<button>
+			<button className="w-6">
 				<RepeatIcon fill={buttonColor} />
 			</button>
 		</div>

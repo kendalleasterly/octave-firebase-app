@@ -10,6 +10,7 @@ import LargePlaceholder from "@/public/Images/placeholder-large.svg";
 import PlaybackControls from "./PlaybackControls";
 import DevicesIcon from "@/public/Images/devices.svg";
 import TimelineIcon from "@/public/Images/timeline.svg";
+import RemoteImage from "./RemoteImage";
 
 function FullScreenPlayer({ toggle }:{toggle: () => void}) {
   const currentPlaybackObject = useRecoilValue(currentPlaybackObjectAtom);
@@ -39,29 +40,30 @@ function FullScreenPlayer({ toggle }:{toggle: () => void}) {
 // 	setBackgroundColor()
 //   }, [currentPlaybackObject.track]);
 
+  console.log(currentPlaybackObject)
+
   return (
 		<div
 			id="full-screen-player-container"
 			className="bg-secondarybg fixed top-0 bottom-0 left-0 right-0">
 			<div className="bg-black bg-opacity-5 w-full h-full px-8 py-6 fullscreen-player space-y-8">
-				<button onClick={toggle} className="text-black">
+				<button onClick={toggle} className="text-black w-6">
 					<CloseIcon style={{fill: "#FFFFFF", opacity: "0.7"}} />
 				</button>
 
 				{/* don't touch this because it will break */}
 				<div className="max-w-full overflow-hidden flex items-center">
-					<img
-						id="album-artwork"
-						src={
-							currentPlaybackObject.track
-								? currentPlaybackObject.track.artwork
-								: LargePlaceholder
-						}
-						alt=""
-						className="rounded-lg max-h-full mx-auto"
-						onLoad={albumCoverDidLoad}
-						crossOrigin="anonymous"
-					/>
+					
+					{
+					currentPlaybackObject.track ? (
+						<div>
+							<RemoteImage src={currentPlaybackObject.track.artwork} className="" imgClass="rounded-lg max-h-full mx-auto"/>
+						</div>
+						
+					) : (
+						<LargePlaceholder className = "rounded-lg max-h-full mx-auto"/>
+					)}
+					
 				</div>
 
 				<div id="info-and-controls" className="info-and-controls">
@@ -83,24 +85,24 @@ function FullScreenPlayer({ toggle }:{toggle: () => void}) {
 					</div>
 
 					<div className="flex justify-between">
-						<button className="medium-only">
+						<button className="medium-only w-6">
 							<DevicesIcon fill="#FFFFFF" />
 						</button>
 
 						<PlaybackControls isFullScreen={true} />
 
-						<button className="medium-only">
+						<button className="medium-only w-6">
 							<TimelineIcon fill="#FFFFFF" />
 						</button>
 					</div>
 
 					<div className="justify-between flex md:hidden">
 						<button>
-							<DevicesIcon fill="#FFFFFF" />
+							<DevicesIcon fill="#FFFFFF" className = "w-6"/>
 						</button>
 
 						<button>
-							<TimelineIcon fill="#FFFFFF" />
+							<TimelineIcon fill="#FFFFFF" className = "w-6"/>
 						</button>
 					</div>
 				</div>

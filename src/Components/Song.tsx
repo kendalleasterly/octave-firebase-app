@@ -70,7 +70,7 @@ function Song({
 			onContextMenu={onContextMenu}
 		>
 			<button
-				className="my-auto"
+				className="my-auto w-6"
 				onClick={showContext}
 				id={`more-button-${index}`}
 			>

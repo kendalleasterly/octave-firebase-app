@@ -88,14 +88,14 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 				</div>
 				<div className="content-with-player md:pb-23" id="main-content">
 					<div className="main">
-						<div className="medium-only border-r h-fullscreen overflow-auto scrollbar scrollbar-track-gray-600 scrollbar-thumb-gray-400 dark:border-gray-700 border-gray-200 pt-10 pl-12 pb-4">
+						<div className="medium-only border-r h-fullscreen overflow-auto scrollbar scrollbar-track-transparent scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-500 dark:border-gray-700 border-gray-200 pt-10 pl-12 pb-4">
 							<Menu />
 						</div>
 
 						<div
 							id="content"
 							className={
-								"px-6 pt-4 md:pl-10 md:pt-10 md:pr-12 pb-28 md:pb-4 h-fullscreen overflow-auto scrollbar scrollbar-track-gray-600 scrollbar-thumb-gray-400  " +
+								"px-6 pt-4 md:pl-10 md:pt-10 md:pr-12 pb-28 md:pb-4 h-fullscreen overflow-auto scrollbar scrollbar-track-transparent scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-500  " +
 								(pathname.includes("/album") ? "space-y-3" : "space-y-6")
 							}
 							onScroll={() => setContextSelection(-1)}

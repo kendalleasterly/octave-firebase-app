@@ -107,17 +107,17 @@ function Player() {
 						</div>
 
 						<div className="space-x-8 place-self-end hidden md:flex self-center z-10">
-							<button onClick={() => setTimelineIsActive(!timelineIsActive)}>
+							<button onClick={() => setTimelineIsActive(!timelineIsActive)} className="w-6">
 								<TimelineIcon
 									fill={timelineIsActive ? "#EB634D" : buttonColor}
 								/>
 							</button>
 
-							<button>
+							<button className="w-6">
 								<DevicesIcon fill={buttonColor} />
 							</button>
 
-							<button onClick={() => setIsFullScreen(true)}>
+							<button onClick={() => setIsFullScreen(true)} className="w-6">
 								<ExpandIcon fill={buttonColor} />
 							</button>
 						</div>

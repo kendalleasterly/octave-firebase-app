@@ -65,8 +65,8 @@ function Menu() {
 
 	return (
 		<div id="menu" className="space-y-8">
-			<div className="flex space-x-2">
-				<Logo fill={isDark ? "#FFFFFF" : "#27272A"} />
+			<div className="flex space-x-2 ">
+				<Logo fill={isDark ? "#FFFFFF" : "#27272A"} className = "w-6"/>
 				<p className="text-xl font-bold text">Octave</p>
 			</div>
 
