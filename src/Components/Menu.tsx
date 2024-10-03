@@ -118,7 +118,7 @@ function Menu() {
 				<SubHeading>PLAYLISTS</SubHeading>
 
 				<button className="flex space-x-3" onClick={createPlaylist}>
-					<div className="my-auto">
+					<div className="my-auto w-6">
 						<AddIcon fill={isDark ? "#FFFFFF" : "#3F3F46"} />
 					</div>
 

@@ -97,7 +97,7 @@ function Song({
 		return (
 			<div
 				className={
-					"z-50 fixed " +
+					"z-5 fixed " +
 					(contextSelection === index ? "flex flex-row" : "hidden")
 				}
 				style={{ top: getOffset().y, right: window.innerWidth - getOffset().x }}

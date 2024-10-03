@@ -25,13 +25,13 @@ function SmallMenu() {
 
 	return (
 		<div>
-			<div className="one-button-header z-10">
+			<div className="one-button-header z-60">
 
 				<button
 					onClick={() => setMenuIsActive(true)}
 					className="rounded-full md:hidden h-11"
 				>
-					<MenuIcon fill={isDark ? "#FFFFFF" : "#3F3F46"} />
+					<MenuIcon fill={isDark ? "#FFFFFF" : "#3F3F46"} className="w-6"/>
 				</button>
 
 				<p className="text-lg md:text-xl text font-semibold m-auto text-center w-full md:text-left">
@@ -39,7 +39,6 @@ function SmallMenu() {
 				</p>
 			</div>
 
-			{/* <div id="small-menu" className = "md:hidden"> */}
 			{maskTransitions(
 				(styles, item) =>
 					item && (
@@ -56,7 +55,7 @@ function SmallMenu() {
 				(styles, item) =>
 					item && (
 						<animated.div style={styles}>
-							<div className="bg-white dark:bg-gray-900 fixed left-0 w-4/5 top-0 bottom-0 pb-17 px-6 pt-6 overflow-scroll overscroll-contain ">
+							<div className="bg-white dark:bg-gray-900 fixed left-0 w-4/5 top-0 bottom-0 pb-17 px-6 pt-6 z-50 overflow-auto scrollbar scrollbar-track-transparent scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-500">
 								<Menu />
 							</div>
 						</animated.div>

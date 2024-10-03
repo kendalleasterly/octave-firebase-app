@@ -84,7 +84,7 @@ function Player() {
 							className="place-self-center md:w-full z-10"
 						>
 							<div className="space-x-4 md:hidden flex flex-row">
-								<button onClick={playPause}>
+								<button onClick={playPause} className="w-6">
 									{isPlaying ? (
 										<PlayingIconSmall fill={buttonColor} />
 									) : (
@@ -92,7 +92,7 @@ function Player() {
 									)}
 								</button>
 
-								<button onClick={skip}>
+								<button onClick={skip} className="w-6">
 									<SkipIcon fill={buttonColor} />
 								</button>
 							</div>
