@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 import Provider from "./provider"
 import ComingSoon from "./ComingSoon"
 
-export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic"
 
 const isComingSoon = false
 
