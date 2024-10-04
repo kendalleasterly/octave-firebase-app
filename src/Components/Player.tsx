@@ -148,8 +148,8 @@ function Player() {
 					{currentPlaybackObject.track &&
 					currentPlaybackObject.track.thumbnail != "" ? (
 						<div>
-								<RemoteImage src={currentPlaybackObject.track.thumbnail} className="" imgClass="rounded-md" width={48} height={48}/>
-								<RemoteImage src={currentPlaybackObject.track.thumbnail} className=" " imgClass="rounded-md" width={56} height={56}/>
+								<RemoteImage src={currentPlaybackObject.track.thumbnail} className="md:hidden" imgClass="rounded-md" width={48} height={48}/>
+								<RemoteImage src={currentPlaybackObject.track.thumbnail} className="medium-only" imgClass="rounded-md" width={56} height={56}/>
 						</div>
 						
 						

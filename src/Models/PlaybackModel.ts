@@ -338,8 +338,6 @@ export function usePlaybackModel() {
 
 	function playTrack(track: Track, position?: number, guid?: string): Promise<PlaybackObject> {
 
-		console.log("playing this track")
-
 		return new Promise((resolve, reject) =>  {
 
 			if (currentPlaybackObject) {
@@ -368,6 +366,17 @@ export function usePlaybackModel() {
 					setCurrentPlaybackObject(playbackObject);
 
 					resolve(playbackObject)
+
+					if (playbackObject.youtubeLink !== "") {
+						notificationModel.add(
+							new NotificationObject(`Match Found on YouTube`, `Please visit YouTube to listen to: ${playbackObject.track?.title}`, "next", playbackObject.youtubeLink)
+						)
+					} else {
+						notificationModel.add(
+							new NotificationObject("We Couldn't Find a Match on YouTube", `Please try another song! There were no videos similar enough to ${playbackObject.track?.title}`, "error")
+						)
+					}
+					
 					
 				})
 				.catch((err) => {

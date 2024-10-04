@@ -35,7 +35,7 @@ export function useTrackModel() {
 
 					axios
 						.post(
-							serverURL + "/metadata-link" + `?sender=${account.uid}`,
+							serverURL + "/metadata-link" + `?sender=${account.uid}`, //If the song can't be found, notify the user when it gets found
 							payload,
 							{
 								headers: {
@@ -49,7 +49,9 @@ export function useTrackModel() {
 							const playbackObject = new PlaybackObject(
 								track, 
 								response.data.url,
-								response.data.expireTime
+								response.data.expireTime,
+								undefined, undefined,
+								response.data.youtubeLink
 							);
 
 							resolve(playbackObject);
@@ -77,7 +79,8 @@ export function useTrackModel() {
 					const playbackObject = new PlaybackObject(
 						track,
 						jsonSSTrack.url,
-						jsonSSTrack.expireTime
+						jsonSSTrack.expireTime, undefined, undefined,
+						jsonSSTrack.youtubeLink
 					);
 
 					resolve(playbackObject);
@@ -196,7 +199,7 @@ export function useTrackModel() {
 		delete copy.dateAdded
 
 		return new Promise((resolve, reject) => {
-			axios.post(serverURL + "/metadata-add" + `?sender=${account.uid}`, copy)
+			axios.post(serverURL + "/metadata-link" + `?sender=${account.uid}`, copy)
 			.then(() => {
 				resolve()
 			})

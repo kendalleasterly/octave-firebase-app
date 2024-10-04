@@ -8,7 +8,7 @@ export default function RemoteImage({imgClass, src, className, width, height, un
 	//IMPORTANT: this must have a parent div, which must have the relative class attribute along with all the ones you thought were in this one
 
 	return (
-		<div className={`${className} z-0`}>
+		<div className={`${className} h-min z-0`}>
 <Image
 				loader={imageLoader}
 				className={imgClass}

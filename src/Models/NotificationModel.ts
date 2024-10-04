@@ -6,8 +6,8 @@ export class NotificationObject {
     constructor(
         public title: string,
         public description: string = "",
-        public iconType: "collection success" | "collection error" | "success" | "error" | "" = "",
-        ) {}
+        public iconType: "collection success" | "collection error" | "success" | "error" | "next" | "" = "",
+        public actionLink: string = "") {}
 }
 
 const notifications: NotificationObject[] = []

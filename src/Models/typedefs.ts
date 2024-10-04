@@ -115,7 +115,8 @@ export class PlaybackObject {
 		public url?: string, 
 		public expireTime?: number, 
 		public position?: number, 
-		public guid?: string) {
+		public guid?: string,
+        public youtubeLink?: string) {
 
         if (this.expireTime) {
             this.isExpired = Date.now() >= this.expireTime;

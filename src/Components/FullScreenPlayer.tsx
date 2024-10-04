@@ -52,13 +52,12 @@ function FullScreenPlayer({ toggle }:{toggle: () => void}) {
 				</button>
 
 				{/* don't touch this because it will break */}
-				<div className="max-w-full overflow-hidden flex items-center">
+				<div className="max-w-full overflow-hidden flex place-content-center h-full">
 					
 					{
 					currentPlaybackObject.track ? (
-						<div>
-							<RemoteImage src={currentPlaybackObject.track.artwork} className="" imgClass="rounded-lg max-h-full mx-auto" unbounded={true}/>
-						</div>
+						
+						<RemoteImage src={currentPlaybackObject.track.artwork} className="place-self-center" imgClass="aspect-square rounded-lg mx-auto" width={375} height={375} />
 						
 					) : (
 						<LargePlaceholder className = "rounded-lg max-h-full mx-auto"/>
