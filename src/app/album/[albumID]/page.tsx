@@ -66,9 +66,11 @@ function AlbumView({params}:{params:{albumID: string}}) {
 	if (album) {
 		return (
 			<div id="album-view" className = "space-y-10">
-				<div className="md:flex md:space-x-6 space-y-6 md:space-y-0 md:items-center">
+				<div className="md:flex space-y-6 md:space-y-0 md:items-center">
                     
-					<RemoteImage src={album.artwork!} className="w-full aspect-square max-w-sm md:w-60 md:h-60 rounded-xl mx-auto md:mx-0 md:max-w-none" imgClass="rounded-xl"/>
+
+				{/* <RemoteImage src={album.artwork!} className=" aspect-square md:hidden rounded-xl mx-auto w-60" imgClass="rounded-xl" width={384} height={384}/> */}
+					<RemoteImage src={album.artwork!} className=" aspect-square medium-only rounded-xl md:max-w-none mr-6" imgClass="rounded-xl" width={240} height={240}/>
                     
 					<div className="my-auto space-y-6">
 						<div className = "space-y-3">

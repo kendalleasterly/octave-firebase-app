@@ -343,8 +343,11 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 		return (
 			<div id="playlist-view" className="space-y-10">
 				<div className="md:flex md:space-x-6 space-y-6 md:space-y-0 md:items-center">
-					<div className="w-full aspect-square max-w-sm md:w-60 md:h-60 mx-auto md:mx-0 md:max-w-none">
-						<PlaylistArtwork playlist={playlist} isDark={isDark}/>
+					<div className="aspect-square medium-only mx-0 max-w-none">
+						<PlaylistArtwork playlist={playlist} isDark={isDark} size={240}/>
+					</div>
+					<div className="aspect-square md:hidden mx-auto md:mx-0 ">
+						<PlaylistArtwork playlist={playlist} isDark={isDark} size={384}/>
 					</div>
 					<div className="my-auto space-y-6">
 						<div className="space-y-3">
@@ -435,7 +438,7 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 	}
 }
 
-export function PlaylistArtwork({playlist, isDark}:{playlist: Playlist, isDark: boolean}) {
+export function PlaylistArtwork({playlist, isDark, size}:{playlist: Playlist, isDark: boolean, size: number}) {
 	function getRoundingFromKey(key: number) {
 		switch (key) {
 			case 0:
@@ -464,8 +467,10 @@ export function PlaylistArtwork({playlist, isDark}:{playlist: Playlist, isDark: 
 							<RemoteImage
 								src={artwork}
 								key={key}
-								className='w-full aspect-square'
+								className='aspect-square'
 								imgClass={getRoundingFromKey(key)}
+								width={size / 2}
+								height={size / 2}
 							/>
 						)
 					})}
@@ -477,7 +482,9 @@ export function PlaylistArtwork({playlist, isDark}:{playlist: Playlist, isDark: 
 				<RemoteImage
 					src={playlist!.tracks[0].artwork}
 					imgClass="rounded-xl"
-					className="w-full aspect-square"
+					className="aspect-square"
+					width={size}
+					height={size}
 				/>
 			)
 		}

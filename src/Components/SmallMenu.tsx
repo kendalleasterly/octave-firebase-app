@@ -1,12 +1,12 @@
 import { animated, useSpring, useTransition } from "@react-spring/web"
-import React from "react"
+import React, { ReactNode } from "react"
 import { useRecoilState, useRecoilValue } from "recoil"
 import { headerTextAtom, isDarkAtom, menuIsActiveAtom } from "@/src/Global/atoms"
 
 import MenuIcon from "@/public/Images/menu.svg"
 import Menu from "./Menu"
 
-function SmallMenu() {
+function SmallMenu({children}:{children: ReactNode}) {
 	const [menuIsActive, setMenuIsActive] = useRecoilState(menuIsActiveAtom)
 	const isDark = useRecoilValue(isDarkAtom)
 	const headerText = useRecoilValue(headerTextAtom)
@@ -18,14 +18,14 @@ function SmallMenu() {
 	})
 
 	const menuTransitions = useTransition(menuIsActive, {
-		from: { display: "absolute", opacity: 0 },
+		from: { display: "block", opacity: 0 },
 		enter: { opacity: 1 },
 		leave: { display: "hidden", opacity: 0 },
 	})
 
 	return (
 		<div>
-			<div className="one-button-header z-60">
+			<div className="one-button-header z-50 mb-6">
 
 				<button
 					onClick={() => setMenuIsActive(true)}
@@ -38,6 +38,8 @@ function SmallMenu() {
 					{headerText}
 				</p>
 			</div>
+
+			{children}
 
 			{maskTransitions(
 				(styles, item) =>

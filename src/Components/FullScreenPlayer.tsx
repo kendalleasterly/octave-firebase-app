@@ -57,7 +57,7 @@ function FullScreenPlayer({ toggle }:{toggle: () => void}) {
 					{
 					currentPlaybackObject.track ? (
 						<div>
-							<RemoteImage src={currentPlaybackObject.track.artwork} className="" imgClass="rounded-lg max-h-full mx-auto"/>
+							<RemoteImage src={currentPlaybackObject.track.artwork} className="" imgClass="rounded-lg max-h-full mx-auto" unbounded={true}/>
 						</div>
 						
 					) : (

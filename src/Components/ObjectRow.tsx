@@ -55,7 +55,7 @@ function ObjectRow({
 	}
 
 	return (
-		<div className="flex w-full space-x-4 z-30">
+		<div className="flex w-full space-x-4">
 			<button
 				className="object-row w-full"
 				onClick={playFunction}
@@ -72,7 +72,7 @@ function ObjectRow({
 
 				{!noImage && 
 				
-				<RemoteImage src={object.thumbnail} className="thumbnail mr-4 md:mx-4 " imgClass="rounded-md thumbnail"/>
+				<RemoteImage src={object.thumbnail} className="thumbnail mr-4 md:mx-4 z-0 " imgClass="rounded-md thumbnail z-0" width={44} height={44}/>
 				
 					
 				}

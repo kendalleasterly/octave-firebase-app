@@ -16,7 +16,7 @@ function AlbumComponent({album, index}: {album: Album, index: number}) {
 
 	return (
 	<ObjectRow object={album} playFunction={goToAlbum} index = {index}>
-		<button className="my-auto" >
+		<button className="my-auto icon" >
 				<Disclosure fill = {isDark ? "#FFFFFF" : "#3F3F46"}/>
 			</button>
 	</ObjectRow>)

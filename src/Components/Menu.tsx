@@ -146,7 +146,7 @@ function Menu() {
 				<SubHeading>ACCOUNT</SubHeading>
 
 				<button className="flex space-x-3" onClick={accountModel.signIn}>
-					<div className="my-auto">
+					<div className="my-auto icon">
 						<UserCircleIcon fill={(isDark ? "#FFFFFF" : "#3F3F46")} />
 					</div>
 
