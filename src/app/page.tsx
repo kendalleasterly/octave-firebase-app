@@ -45,9 +45,15 @@ function Home() {
                             return (
                                 <Link href={"/playlist/"+playlist.id} key = {key}>
                                     <div className='w-min bg-gray-800'>
-                                    <div className="w-full max-w-sm md:w-52 md:h-52 mx-auto aspect-square md:mx-0 md:max-w-none">
-                                    <PlaylistArtwork playlist={playlist} isDark={isDark}/>
-                                    </div>
+                                        <div className="w-full max-w-sm md:w-52 md:h-52 mx-auto aspect-square md:mx-0 md:max-w-none">
+                                            <div className='medium-only'>
+                                                <PlaylistArtwork playlist={playlist} isDark={isDark} size ={208}/>
+                                            </div>
+                                            <div className='md:hidden'>
+                                                <PlaylistArtwork playlist={playlist} isDark={isDark} size ={384}/>
+                                            </div>
+                                            
+                                        </div>
                                     
                                     <p>{playlist.title}</p>
                                     </div>
