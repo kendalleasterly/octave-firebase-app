@@ -12,6 +12,7 @@ import ButtonComponent from "../Components/ButtonComponent";
 function Home() {
   const setHeaderText = useRecoilState(headerTextAtom)[1];
   const account = useRecoilValue(accountAtom);
+  console.log({account})
   const accountModel = useAccountModel();
   const playlistModel = usePlaylistModel();
   const [accountPlaylists, setAccountPlaylists] = useState<{
@@ -52,12 +53,12 @@ function Home() {
                 </li>
               </ul>
             </li>
-            {account.isSignedIn ?? (
+            {!account.isSignedIn ? (
               <li>
                 To get the full experience, create a free account! You&apos;ll
                 be able to create playlists, add songs to your playlists, etc.
               </li>
-            )}
+            ) : <></>}
           </ul>
         </div>
 
@@ -71,12 +72,12 @@ function Home() {
                 ></ButtonComponent>
               </Link>
             </div>
-{account.isSignedIn ?? <ButtonComponent
+{!account.isSignedIn ? <ButtonComponent
               text="Sign In"
               action={() => {
                 accountModel.signIn();
               }}
-            ></ButtonComponent>}
+            ></ButtonComponent> : <></>}
             
           </div>
         </div>
