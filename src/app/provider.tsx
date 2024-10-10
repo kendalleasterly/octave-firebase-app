@@ -13,8 +13,6 @@ export default function Provider({children}:{children: ReactNode}) {
     //     { ssr: false }
     //   )
 
-    console.log("rendering provider")
-
     return (
         <RecoilRoot>
             <AppLayout>

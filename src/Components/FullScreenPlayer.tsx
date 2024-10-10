@@ -64,7 +64,7 @@ function FullScreenPlayer({ toggle }:{toggle: () => void}) {
 					{
 					currentPlaybackObject.track ? (
 						
-						<RemoteImage src={currentPlaybackObject.track.artwork} className="place-self-center" imgClass="aspect-square rounded-lg mx-auto" onLoad={albumCoverDidLoad} ref={albumCoverRef} width={375} height={375} />
+						<RemoteImage src={currentPlaybackObject.track.artwork} className="place-self-center" imgClass="aspect-square rounded-lg mx-auto" onLoad={albumCoverDidLoad} reference={albumCoverRef} width={375} height={375} />
 						
 					) : (
 						<LargePlaceholder className = "rounded-lg max-h-full mx-auto"/>
