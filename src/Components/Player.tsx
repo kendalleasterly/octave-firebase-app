@@ -26,12 +26,6 @@ import RemoteImage from "./RemoteImage"
 function Player() {
 	const currentPlaybackObject = useRecoilValue(currentPlaybackObjectAtom)
 	const isPlaying = useRecoilValue(isPlayingAtom)
-	const auidoRef = useRef(null)
-	const setAudioReference = useSetRecoilState<any>(audioRefAtom) //TODO make sure that whole ref thing works prob doesn't
-
-	useEffect(() => {
-		setAudioReference(auidoRef)
-	}, [auidoRef])
 
 	const {
 		handlePlaying,
@@ -60,7 +54,6 @@ function Player() {
 				onPause={handlePause}
 				onEnded={handleEnded}
 				onTimeUpdate={handleUpdate}
-				ref={auidoRef}
 			></audio>
 
 			{!isFullScreen ? (

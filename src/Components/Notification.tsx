@@ -35,10 +35,10 @@ function Notification({ notificationObject }: {notificationObject: NotificationO
 			const index = notifications.indexOf(notificationObject)
 
 			if (index > -1) {
-			let newNotifications = [...notifications]
+				let newNotifications = [...notifications]
 
-			newNotifications.splice(index, 1)
-			setNotifications(newNotifications)
+				newNotifications.splice(index, 1)
+				setNotifications(newNotifications)
 			} else {
 				console.log("couldn't find that one",index)
 			}

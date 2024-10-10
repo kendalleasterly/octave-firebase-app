@@ -8,8 +8,6 @@ import ButtonComponent from '@/src/Components/ButtonComponent';
 
 function Settings() {
 
-	console.log("rendering settings")
-
     const [isDark, setIsDark] = useRecoilState(isDarkAtom)
 	const setHeaderText = useSetRecoilState(headerTextAtom)
 	const account = useRecoilValue(accountAtom)
@@ -25,8 +23,6 @@ function Settings() {
 	})
 
 	function setNewIsDark(newIsDark:boolean) {
-
-		console.log("running function")
 
         setIsDark(newIsDark)
        

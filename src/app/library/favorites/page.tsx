@@ -19,7 +19,6 @@ export default function Favorites() {
   useEffect(() => {
     setHeaderText("Favorites")
     if (account.isSignedIn) {
-      console.log(Object.keys(account.savedTracks));
       spotifyModel
         .getTracksFromSongIDs(Object.keys(account.savedTracks), true)
         .then((tracks) => {

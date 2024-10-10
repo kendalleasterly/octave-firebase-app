@@ -27,7 +27,6 @@ import { useAccountModel } from "@/src/Models/AccountModel"
 import { usePathname } from "next/navigation"
 
 export default function AppLayout({ children }: { children: ReactNode }) {
-	console.log("rendering AppLayout")
 
 	const [timelineIsActive, setTimelineIsActive] =
 		useRecoilState(timelineIsActiveAtom)
@@ -47,7 +46,6 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 	}, [pathname])
 
 	useEffect(() => {
-		console.log("checking for redirect")
 		accountModel.checkForGoogleRedirect()
 		accountModel.getAccount()
 	}, [])
@@ -59,17 +57,10 @@ export default function AppLayout({ children }: { children: ReactNode }) {
         setIsCLient(true)
 
         if (bodyRef.current) {
-            console.log("changed className to", getClassName())
             bodyRef.current.className = getClassName()
-        } else {
-            console.log("didn't change className to", getClassName())
         }
 
 	}, [])
-
-	// useEffect(() => {
-	// 	console.log("changed", isDarkAtom.toJSON())
-	// }, [isDarkAtom])
 
 	return (
         isClient ?

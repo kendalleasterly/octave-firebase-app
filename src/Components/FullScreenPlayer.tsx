@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentPlaybackObjectAtom } from "@/src/Global/atoms";
 import {FastAverageColor} from "fast-average-color";
@@ -14,33 +14,40 @@ import RemoteImage from "./RemoteImage";
 
 function FullScreenPlayer({ toggle }:{toggle: () => void}) {
   const currentPlaybackObject = useRecoilValue(currentPlaybackObjectAtom);
+  const albumCoverRef = useRef(null)
   const fac = new FastAverageColor(); //TODO do the spotify / apple music thing where you have a linear gradient that's kinda slanted...use either two shades of the average color or the top two colors
 
   function setBackgroundColor() {
-    console.log("getting average color and setting it to the bg");
+	console.log("trying to set background color")
 
-    const imageElement = document.getElementById("album-artwork") as HTMLImageElement
-
-	if (imageElement) {
-		const color = fac.getColor(imageElement);
+	if (albumCoverRef.current) {
+		const color = fac.getColor(albumCoverRef.current);
+		console.log({color})
 
 		const container = document.getElementById("full-screen-player-container")!
 		container.style.backgroundColor = color.hex;
+	} else {
+		console.log("no image element")
 	}
   }
 
   function albumCoverDidLoad() {
+	console.log("album cover did load")
     if (currentPlaybackObject.track) {
       setBackgroundColor();
     }
-	console.log("automatic called")
   }
 
-//   useEffect(() => {
-// 	setBackgroundColor()
-//   }, [currentPlaybackObject.track]);
+  useEffect(() => {
+	setBackgroundColor()
+	
+  }, [currentPlaybackObject.track]);
 
-  console.log(currentPlaybackObject)
+  useEffect(() => {
+	
+  })
+
+  
 
   return (
 		<div
@@ -57,7 +64,7 @@ function FullScreenPlayer({ toggle }:{toggle: () => void}) {
 					{
 					currentPlaybackObject.track ? (
 						
-						<RemoteImage src={currentPlaybackObject.track.artwork} className="place-self-center" imgClass="aspect-square rounded-lg mx-auto" width={375} height={375} />
+						<RemoteImage src={currentPlaybackObject.track.artwork} className="place-self-center" imgClass="aspect-square rounded-lg mx-auto" onLoad={albumCoverDidLoad} ref={albumCoverRef} width={375} height={375} />
 						
 					) : (
 						<LargePlaceholder className = "rounded-lg max-h-full mx-auto"/>

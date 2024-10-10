@@ -53,7 +53,6 @@ function AlbumView({params}:{params:{albumID: string}}) {
 		const tracksWithPositions = trackModel.giveObjectsPositions(album!.tracks)
 
 		const shuffledTracksWithPositions = shuffleObjects(tracksWithPositions);
-		console.log({shuffledTracksWithPositions});
 
 		trackModel.playCollection(shuffledTracksWithPositions, true)
 		.then((newQueue) => {

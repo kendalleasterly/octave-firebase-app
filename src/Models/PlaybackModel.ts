@@ -363,10 +363,6 @@ export function usePlaybackModel() {
 					if (position) {playbackObject.position = position}
 					if (guid) {playbackObject.guid = guid}
 
-					setCurrentPlaybackObject(playbackObject);
-
-					resolve(playbackObject)
-
 					if (playbackObject.youtubeLink !== "") {
 						notificationModel.add(
 							new NotificationObject(`Match Found on YouTube`, `Please visit YouTube to listen to: ${playbackObject.track?.title}`, "next", playbackObject.youtubeLink)
@@ -376,6 +372,10 @@ export function usePlaybackModel() {
 							new NotificationObject("We Couldn't Find a Match on YouTube", `Please try another song! There were no videos similar enough to ${playbackObject.track?.title}`, "error")
 						)
 					}
+
+					setCurrentPlaybackObject(playbackObject);
+
+					resolve(playbackObject)
 					
 					
 				})

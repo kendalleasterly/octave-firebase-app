@@ -37,33 +37,33 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 	const playlistModel = usePlaylistModel()
 	const { prepareForNewSong, shuffleObjects } = usePlaybackModel()
 
-	// const observer = useRef(
-	// 	new IntersectionObserver((entries) => {
-	// 		const first = entries[0]
+	const observer = useRef(
+		new IntersectionObserver((entries) => {
+			const first = entries[0]
 
-	// 		if (first.isIntersecting) {
-	// 			console.log("was intersecting")
-	// 			setOffsets((num) => num + 1)
-	// 		}
-	// 	})
-	// )
+			if (first.isIntersecting) {
+				console.log("was intersecting")
+				setOffsets((num) => num + 1)
+			}
+		})
+	)
 
-	// useEffect(() => {
-	// 	const currentElement = bottomEl
-	// 	const currentObserver = observer.current
+	useEffect(() => {
+		const currentElement:any = bottomEl
+		const currentObserver = observer.current
 
-	// 	if (currentElement) {
-	// 		console.log("observing")
-	// 		currentObserver.observe(currentElement)
-	// 	}
+		if (currentElement) {
+			console.log("observing")
+			currentObserver.observe(currentElement)
+		}
 
-	// 	return () => {
-	// 		if (currentElement) {
-	// 			console.log("unobserving")
-	// 			currentObserver.unobserve(currentElement)
-	// 		}
-	// 	}
-	// }, [bottomEl])
+		return () => {
+			if (currentElement) {
+				console.log("unobserving")
+				currentObserver.unobserve(currentElement)
+			}
+		}
+	}, [bottomEl])
 
 	useEffect(() => {
 		loadMoreTracks()
@@ -229,7 +229,6 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 		})
 
 		const maxSongs = songIDs.length <= 50 ? songIDs.length : 50
-		console.log({ maxSongs })
 
 		//call getTrackFromID for every single id
 
@@ -237,7 +236,6 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 
 		function checkForFinish() {
 			if (tracksWithPositions.length === maxSongs - errors) {
-				console.log("did finish the last one")
 
 				//once you have an array of tracks, sort it using the songIDs.indexOf(first.id) - songIDs.indexOf(second.id)
 				tracksWithPositions.sort(
@@ -256,7 +254,6 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 
 				//put those first ten into trackModel.playCollection(sortedTracksWithPositionsArray)
 
-				console.log({ firstTenTracksWithPositions })
 				trackModel
 					.playCollection(firstTenTracksWithPositions, isShuffled)
 					.then((unsortedFirstTenPlaybackObjects) => {
@@ -271,8 +268,6 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 								)
 							}
 						)
-
-						console.log({ firstTenPlaybackObjects })
 
 						let remainingTracksWithPositions = [...tracksWithPositions]
 
@@ -292,7 +287,6 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 						]
 
 						setQueue(newQueue)
-						console.log({ newQueue })
 					})
 			}
 		}
@@ -321,7 +315,6 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 				})
 				.catch((error) => {
 					errors++
-					console.log("error getting track from id:", error)
 
 					checkForFinish()
 				})
@@ -393,8 +386,6 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 										trackIDsWithPositions
 									)
 
-									console.log({ shuffledTrackIDsWithPositions })
-
 									playArrayOfIDsWithPositions(
 										shuffledTrackIDsWithPositions,
 										true
@@ -456,8 +447,6 @@ export function PlaylistArtwork({playlist, isDark, size}:{playlist: Playlist, is
 
 	const firstUniqueArtworks = getFirstUniqueArtworks()
 
-	console.log({firstUniqueArtworks})
-
 	if (firstUniqueArtworks.length > 0) {
 		if (firstUniqueArtworks.length == 4) {
 			return (
@@ -469,8 +458,9 @@ export function PlaylistArtwork({playlist, isDark, size}:{playlist: Playlist, is
 								key={key}
 								className='aspect-square'
 								imgClass={getRoundingFromKey(key)}
-								width={size / 2}
-								height={size / 2}
+								// width={size / 2}
+								// height={size / 2}
+								unbounded={true}
 							/>
 						)
 					})}
