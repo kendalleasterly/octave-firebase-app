@@ -85,7 +85,7 @@ function Notification({ notificationObject }: {notificationObject: NotificationO
 					{notificationObject.actionLink !== "" && 
 						<a href={notificationObject.actionLink} target="_blank" rel="noopener noreferrer" className = "place-self-end self-center" onClick={() => {
 							//Pause current song
-							playbackModel.playPause()
+							playbackModel.pause()
 							}}>
 							<ButtonComponent text="Listen Now" action={() => {}} />
 						</a>

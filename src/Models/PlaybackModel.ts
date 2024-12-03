@@ -95,6 +95,10 @@ export function usePlaybackModel() {
 		}
 	}
 
+	function pause() {
+		player.current?.pause();
+	}
+
 	function skipBack() {
 		if (currentPlaybackObject.track) {
 			if (player.current?.currentTime && player.current?.currentTime > 3) {
@@ -432,6 +436,7 @@ export function usePlaybackModel() {
 		getCurrentQueuePosition,
 		checkAndSetCurrentPlaybackObject,
 		getPositionInQueue,
+		pause
 	};
 }
 //TODO: make sure that when a playbackObject expires and it is given a new one, it has the same guid.

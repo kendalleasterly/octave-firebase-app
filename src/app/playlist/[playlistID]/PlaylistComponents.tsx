@@ -42,7 +42,7 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 			const first = entries[0]
 
 			if (first.isIntersecting) {
-				console.log("was intersecting")
+				
 				setOffsets((num) => num + 1)
 			}
 		})
@@ -53,13 +53,11 @@ function PlaylistView({ params }: { params: { playlistID: string } }) {
 		const currentObserver = observer.current
 
 		if (currentElement) {
-			console.log("observing")
 			currentObserver.observe(currentElement)
 		}
 
 		return () => {
 			if (currentElement) {
-				console.log("unobserving")
 				currentObserver.unobserve(currentElement)
 			}
 		}

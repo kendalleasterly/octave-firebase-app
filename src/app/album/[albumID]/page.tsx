@@ -68,7 +68,7 @@ function AlbumView({params}:{params:{albumID: string}}) {
 				<div className="md:flex space-y-6 md:space-y-0 md:items-center">
                     
 
-				{/* <RemoteImage src={album.artwork!} className=" aspect-square md:hidden rounded-xl mx-auto w-60" imgClass="rounded-xl" width={384} height={384}/> */}
+					<RemoteImage src={album.artwork!} className=" aspect-square md:hidden rounded-xl mx-auto w-60" imgClass="rounded-xl" width={384} height={384}/>
 					<RemoteImage src={album.artwork!} className=" aspect-square medium-only rounded-xl md:max-w-none mr-6" imgClass="rounded-xl" width={240} height={240}/>
                     
 					<div className="my-auto space-y-6">

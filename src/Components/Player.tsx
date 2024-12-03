@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
 import {
 	currentPlaybackObjectAtom,
@@ -26,6 +26,8 @@ import RemoteImage from "./RemoteImage"
 function Player() {
 	const currentPlaybackObject = useRecoilValue(currentPlaybackObjectAtom)
 	const isPlaying = useRecoilValue(isPlayingAtom)
+	const playerRef: any = useRef(null)
+	const setPlayerRef = useSetRecoilState(audioRefAtom)
 
 	const {
 		handlePlaying,
@@ -44,6 +46,11 @@ function Player() {
 	const placeholder = usePlaceholder()
 	const buttonColor = isDark ? "#FFFFFF" : "#3F3F46"
 
+	useEffect(() => {
+		setPlayerRef(playerRef)
+	}, [playerRef, setPlayerRef])
+
+
 	return (
 		<div>
 			<audio
@@ -54,6 +61,8 @@ function Player() {
 				onPause={handlePause}
 				onEnded={handleEnded}
 				onTimeUpdate={handleUpdate}
+				ref = {playerRef}
+
 			></audio>
 
 			{!isFullScreen ? (

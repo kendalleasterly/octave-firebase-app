@@ -1,6 +1,6 @@
 'use client'
 
-import { MutableRefObject } from "react";
+import { MutableRefObject, useRef } from "react";
 import { atom } from "recoil";
 
 let typeValue: MutableRefObject<null> | null = null
